@@ -1,2 +1,3 @@
-# plugin
-📦 A plugin library interface for typescript projects
+# Plugin Library Interface
+
+📦 A plugin library interface for TypeScript projects.
