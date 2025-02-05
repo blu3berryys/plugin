@@ -1,7 +1,7 @@
 {
   "name": "plugin",
   "version": "1.0.0",
-  "description": "📦 A plugin library interface for typescript projects",
+  "description": "📦 A plugin library interface for TypeScript projects",
   "types": "./lib/main.d.ts",
   "repository": {
     "type": "git",
