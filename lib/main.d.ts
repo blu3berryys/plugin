@@ -1,4 +1,3 @@
-
 export interface IZenPlugin {
   name: string;
   version: string;
@@ -37,23 +36,31 @@ export interface ISandboxedTab {
   readonly isSelected: boolean;
 }
 
-export type IPluginEventKey = "onInit" | "onUnload" | "onTabChange" | "onTabClose" 
-                            | "onTabOpen" | "onWorkspaceChange" | "onWorkspaceClose" 
-                            | "onWorkspaceOpen" | "onPreferencesChange";
+export type IPluginEventKey =
+  | "onInit"
+  | "onUnload"
+  | "onTabChange"
+  | "onTabClose"
+  | "onTabOpen"
+  | "onWorkspaceChange"
+  | "onWorkspaceClose"
+  | "onWorkspaceOpen"
+  | "onPreferencesChange";
 
-export type IPluginEventProps<T extends IPluginEventKey> = 
-    T extends "onInit" ? { }
-  : T extends "onUnload" ? { }
-  : T extends "onTabChange" ? { tabId: string }
-  : T extends "onTabClose" ? { tabId: string }
-  : T extends "onTabOpen" ? { tabId: string }
-  : T extends "onWorkspaceChange" ? { workspace: IWorkspace }
-  : T extends "onWorkspaceClose" ? { workspace: IWorkspace }
-  : T extends "onWorkspaceOpen" ? { workspace: IWorkspace }
-  : T extends "onPreferencesChange" ? { settings: IPluginSettings }
-  : never;
+export type IPluginEventProps<T extends IPluginEventKey> =
+  T extends "onInit" ? {} :
+  T extends "onUnload" ? {} :
+  T extends "onTabChange" ? { tabId: string } :
+  T extends "onTabClose" ? { tabId: string } :
+  T extends "onTabOpen" ? { tabId: string } :
+  T extends "onWorkspaceChange" ? { workspace: IWorkspace } :
+  T extends "onWorkspaceClose" ? { workspace: IWorkspace } :
+  T extends "onWorkspaceOpen" ? { workspace: IWorkspace } :
+  T extends "onPreferencesChange" ? { settings: IPluginSettings } :
+  never;
 
 export type IPluginEvent<T extends IPluginEventKey> = (props: IPluginEventProps<T>) => void;
+
 export type IPluginEvents = {
   [K in IPluginEventKey]?: IPluginEvent<K>;
 };
@@ -69,6 +76,7 @@ export type IPluginContextMenu = {
 };
 
 export type IPluginSettings = IPluginSetting[];
+
 export default IZenPlugin;
 
 // API
